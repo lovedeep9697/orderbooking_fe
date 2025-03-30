@@ -13,7 +13,7 @@ const RefershToken = ({ refreshToken, onRefresh }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh: refreshToken }),
       });
-      if (response.status != 200) {
+      if (response.status != 201) {
         navigate("/login");
         return;
       }

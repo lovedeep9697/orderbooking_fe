@@ -8,6 +8,7 @@ import RefreshToken from "./components/RefreshToken.js";
 import HomePage from "./components/HomePage";
 import Orderplacement from "./components/Orderplacement";
 import TradeHistory from "./components/TradeHistory";
+import SignupForm from "./components/SignupForm";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");
@@ -39,6 +40,11 @@ function App() {
     navigate("/");
   };
 
+  const handleSignup = (evt) => {
+    console.log("navigating");
+    navigate("/login");
+  };
+
   return (
     <div className="App">
       <h2>Order booking NK</h2>
@@ -51,6 +57,10 @@ function App() {
           element={
             <LoginForm onLogin={handleLogin} accessToken={accessToken} />
           }
+        />
+        <Route
+          path="/signup"
+          element={<SignupForm onSignup={handleSignup} />}
         />
         {/* "/placeorder" route serves as order placement page */}
         <Route
